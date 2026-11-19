@@ -1,0 +1,45 @@
+assuming rad mode
+
+expression: sin(π/6) pass
+
+result: 0.5
+
+expression: sin(π/2) pass
+
+result: 1
+
+expression: sin(π) pass
+
+result: 0
+
+expression: sin(3*π/2) pass
+
+result: -1
+
+expression: sin(2*π) pass (kinda, the output was -0, that is not a thing)
+
+result: 0
+
+expression: sin(π/6+π/3) pass
+
+result: 1
+
+expression: sin(π/2-π/6) pass
+
+result: 0.8660254038
+
+expression: sin(π/6*3) pass
+
+result: 1
+
+expression: sin(π/2/2) pass
+
+result: 0.7071067812
+
+expression: sin(e-e) pass
+
+result: 0
+
+expression: sin(π+π/2) pass
+
+result: -1
