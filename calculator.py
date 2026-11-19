@@ -1030,7 +1030,7 @@ def solve(expression, y):
                     return "SyntaxErr: close bracket"
             #end of trig/ln/log block
 
-            return operations(str(constants(expression))).lstrip("+") #the stripping is not intended, 
+            return operations(str(constants(expression))) #.lstrip("+") #the stripping is not intended, 
             # this is my first action that I took when I saw that some expressions give away the signs.
             # when I come to this project to finish it (someday), I would take care of that issue
 
