@@ -1,6 +1,6 @@
 # Scientific Calculator
 
-A Python desktop calculator with a dark CustomTkinter keypad and a hand-written expression evaluator. It’s a work in progress. You can calculate the sine of an angle in degrees or radians, take logarithms, and work with powers and constants. Basic arithmetic and compound expressions still have some surprising edge cases.
+A Python desktop calculator with a dark CustomTkinter keypad and a hand-written expression evaluator. It’s a work in progress. You can calculate the sine of an angle in degrees or radians, take logarithms, and work with powers and constants. The evaluator handles arithmetic precedence, so `2+3*4` gives `14.0`.
 
 ## Try it
 
@@ -14,7 +14,7 @@ The calculator starts in degree mode. Click **sin**, type `30)`, and press **Ent
 | `log(100)` | Either | `2.0` |
 | `ln(1)` | Either | `0.0` |
 | `2^3^2` | Either | `512.0` |
-| `2π` | Either | `6.283185307179586` |
+| `2π` | Either | `+6.283185307179586` |
 
 The display keeps the last three successful calculations for the session. Use the copy button to copy the displayed value, **Backspace** to delete the last input, or **Escape** to clear the current expression.
 
@@ -25,9 +25,10 @@ The display keeps the last three successful calculations for the session. Use th
 
 ## Current limitations
 
-- Some basic arithmetic fails. For example, `12/3` returns `4.0`, but `9-4` and `2+3*4` return a fallback message.
-- Grouping and nested functions are incomplete. Both `(2+3)*4` and `sin(cos(0))` return a syntax error. The natural logarithm accepts a numeric argument such as `ln(1)`, but `ln(e)` also returns a syntax error.
-- The square-root button inserts `sqrt(`, but evaluating `sqrt(9)` returns the expression itself. The **2nd** button is disabled.
+- Parentheses work in function calls such as `sin(30)`. Grouping with `(2+3)*4`, nesting with `sin(cos(0))`, and adding a function result with `2+sin(30)` each produce a syntax error.
+- Some operator combinations still produce a syntax error, including multiplication by a negative number in `3*-2` and a chained power within a sum in `5+5^2^2`.
+- The natural logarithm expects a numeric literal. Both `ln(e)` and `ln(1+1)` produce a syntax error.
+- The square-root button returns the expression itself for `sqrt(9)`. Use a fractional exponent such as `9^0.5` to get `3.0`. The **2nd** button is disabled.
 
 ## Run on Linux
 
